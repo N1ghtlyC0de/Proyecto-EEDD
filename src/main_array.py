@@ -1,11 +1,11 @@
-from dynamicArray import DynamicArray
+from DataStructures.dynamicArray import DynamicArray
 import time
 import random
 start_time = time.time()
 
 if __name__ == '__main__':
   
-  with open("D:\Academico\Estructura de Datos\EDD\Proyecto Estructuras\diezmillones_elementos.txt", "r") as fileData:
+  with open("BDD.txt", "r") as fileData:
     data = fileData.readlines()
 
   list_of_data=DynamicArray()
@@ -18,7 +18,7 @@ if __name__ == '__main__':
 
   size_array=list_of_data.__len__()
   
-  with open("D:\Academico\Estructura de Datos\EDD\Proyecto Estructuras\serials_choice.txt","r") as fileData2:
+  with open("serials_choice.txt","r") as fileData2:
     serial_random = fileData2.readlines()
 
   for line in serial_random:
@@ -39,13 +39,12 @@ if __name__ == '__main__':
       if int(minimo1) < int(minimo):
           minimo = minimo1
           serial = serial1
-    print(
-        str("El identificador ")+ desiredProduct + str(" con valor mas bajo se encuentra en: ") + serial +
-        str(" con valor: ") + minimo)
+    print(str("El identificador con valor mas bajo se encuentra en: ") + serial + str(" con valor: ") + minimo)
     
 #Se ingresa un número determinado para la cantidad de tiendas
   
-  for item in range(10):
+  productsQty = random.randint(1, 20)
+  for item in range(productsQty):
     indice_aleatorio = random.randint(0, size_of_list_of_serials-1)
     desiredProduct = list_of_serials[indice_aleatorio]
     read(list_of_data,desiredProduct)
